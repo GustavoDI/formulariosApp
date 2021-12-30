@@ -1,1 +1,86 @@
-<p>switches works!</p>
+<h2>Template: <small>Switches</small></h2>
+<hr>
+<form action="" ngSubmit #miForm="ngForm" autocomplete="off">
+    <!-- Radios -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Género</label>
+        <div class="col-sm-9">
+            <div class="custom-control custom-radio">
+                <input class="custom-control-input" 
+                type="radio" 
+                Value="M" 
+                [(ngModel)]="persona.genero"
+                id="radioMasculino" 
+                name="radioGenero" 
+                required>
+                <label class="custom-control-label" for="radioMasculino">
+                    Masculino
+                </label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input class="custom-control-input" 
+                type="radio" 
+                Value="F" 
+                [(ngModel)]="persona.genero" 
+                id="radioFemenino" 
+                name="radioGenero"  
+                required>
+                <label class="custom-control-label" for="radioFemenino">
+                    Femenino
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Switches -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Notificaciones</label>
+        <div class="col-sm-9">
+            <div class="custom-control custom-switch mt-2">
+                <input type="checkbox" 
+                class="custom-control-input" 
+                [(ngModel)]="persona.notificaciones"
+                name="notificaciones"
+                id="checkNotificacion">
+                <label class="custom-control-label" for="checkNotificacion">Quiero recibir notificaciones</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" 
+                class="custom-control-input" 
+                name="terminos"
+                [(ngModel)]="terminosYCondiciones"
+                id="checkNotificacion">
+                <label class="custom-control-label" for="checkNotificacion">Términos y condiciones de uso </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Botón submit -->
+    <div class="row">
+        <div class="col">
+            <button type="submit" 
+            class="btn btn-primary float-right"
+            [disabled]="miForm.invalid">
+            Guardar
+        </button>
+        </div>
+    </div>
+</form>
+
+<span>Valor de Formulario</span>
+<Pre>{{miForm.value | json}}</Pre>
+<hr>
+<span>Valid</span>
+<Pre>{{miForm.valid}}</Pre>
+<hr>
+<span>Condiciones</span>
+<Pre></Pre>
+<hr>
