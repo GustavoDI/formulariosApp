@@ -5,7 +5,7 @@ import { DinamicosComponent } from './dinamicos/dinamicos.component';
 import { SwitchesComponent } from './switches/switches.component';
 
 const routes: Routes = [
-  // lazy load
+  // lazy load esto es todo lo que esta dentro de el modulo de reactive
   {
     path:'',
     children:[

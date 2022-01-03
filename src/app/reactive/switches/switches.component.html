@@ -1,1 +1,91 @@
-<p>switches works!</p>
+<h2>Reactivos: <small>Switches</small></h2>
+<hr>
+<form action="" autocomplete="off" [formGroup]="miForm" (ngSubmit)="guardar()">
+    <!-- Radios -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Género</label>
+        <div class="col-sm-9">
+
+            <div class="custom-control custom-radio">
+
+                <input class="custom-control-input" 
+                type="radio" 
+                Value="M"
+                formControlName="genero"
+                id="radioMasculino">
+
+                <label class="custom-control-label" for="radioMasculino">
+                    Masculino
+                </label>
+
+            </div>
+
+            <div class="custom-control custom-radio">
+
+                <input class="custom-control-input" 
+                type="radio" 
+                Value="F"  
+                formControlName="genero"
+                id="radioFemenino" >
+
+                <label class="custom-control-label" for="radioFemenino">
+                    Femenino
+                </label>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Switches -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label">Notificaciones</label>
+        <div class="col-sm-9">
+            <div class="custom-control custom-switch mt-2">
+                <input type="checkbox" 
+                class="custom-control-input"
+                formControlName="notificaciones"
+                id="checkNotificacionSwitch">
+                <label class="custom-control-label" for="checkNotificacionSwitch">Quiero recibir notificaciones</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Check -->
+    <div class="row mb-3">
+        <label for="" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" 
+                class="custom-control-input"
+                formControlName="condiciones"
+                id="checkNotificacion">
+                <label class="custom-control-label" 
+                       for="checkNotificacion">
+                       Términos y condiciones de uso 
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Botón submit -->
+    <div class="row">
+        <div class="col">
+            <button type="submit" 
+            class="btn btn-primary float-right" >
+            Guardar
+        </button>
+        </div>
+    </div>
+</form>
+
+<span>Valor de Formulario</span>
+<Pre>{{miForm.value | json}}</Pre>
+<hr>
+<span>Valid</span>
+<Pre>{{miForm.valid}}</Pre>
+<hr>
+<span>Condiciones</span>
+<Pre>{{miForm.valid}}</Pre>
+<hr>
+
