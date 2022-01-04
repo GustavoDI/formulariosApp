@@ -1,0 +1,112 @@
+<h2>Validaciones reactivas</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form action="" autocomplete="off" (ngSubmit)="submitFormulario()" [formGroup]="miForm">
+            <!-- Nombre -->
+            <div class="row mb-3">
+                <label for="" class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" 
+                    class="form-control" 
+                    formControlName="nombre"
+                    placeholder="Nombre del usuario">
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('nombre')">
+                        Debe ser en formato de nombre y apellido
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Email -->
+            <div class="row mb-3">
+                <label for="" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email"
+                     class="form-control" 
+                     formControlName="email" 
+                     placeholder="Email">
+                    <span class="form-text text-danger" *ngIf="campoNoValido('email')">
+                        Debe Ingresar un email valido
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- username -->
+            <div class="row mb-3">
+                <label for="" class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+                    <input type="text" 
+                    class="form-control" 
+                    formControlName="userName"
+                    placeholder="Código del usuario">
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('userName')">
+                        Debe ingresar un username distinto de gustav
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Password -->
+            <div class="row mb-3">
+                <label for="" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" 
+                    class="form-control" 
+                    formControlName="password"
+                    placeholder="Password de la cuenta">
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('password')">
+                        Debe ser mayor a 6 letras
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Password2 -->
+            <div class="row mb-3">
+                <label for="" class="col-sm-3 col-form-label">Confirmar</label>
+                <div class="col-sm-9">
+                    <input type="password" 
+                    class="form-control" 
+                    formControlName="password2"
+                    placeholder="Confirmar contraseña">
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('password2')">
+                        Las contraseñas deben de ser iguales
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- botón -->
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary float-right">Crear</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<h2>Form valid</h2>
+<pre>: {{miForm.valid}}</pre>
+<!-- Revisando errores que pueden haber  -->
+<h5>Errores en Nombre</h5>
+<pre>{{miForm.controls.nombre.errors | json}}</pre>
+<hr>
+<h5>Errores en email</h5>
+<pre>{{miForm.controls.email.errors | json}}</pre>
+<hr>
+<h5>Errores en username</h5>
+<pre>{{miForm.controls.userName.errors | json}}</pre>
+<hr>
+<h5>Errores en pass1</h5>
+<pre>{{miForm.controls.password.errors | json}}</pre>
+<hr>
+<h5>Errores en pass2</h5>
+<pre>{{miForm.controls.password2.errors | json}}</pre>
+<hr>
