@@ -28,9 +28,21 @@
                      class="form-control" 
                      formControlName="email" 
                      placeholder="Email">
-                    <span class="form-text text-danger" *ngIf="campoNoValido('email')">
-                        Debe Ingresar un email valido
+                    <!-- Forma de realizar desde el componente ts -->
+                    <span class="form-text text-danger"
+                    *ngIf="campoNoValido('email')">
+                        {{emailErrorMsg}}
                     </span>
+                     <!-- una forma de realizar la validación de tipo de email desde el HTML -->
+                    <!-- <span class="form-text text-danger" *ngIf="emailRequired()">
+                        El email es requerido
+                    </span>
+                    <span class="form-text text-danger" *ngIf="emailFormato()">
+                        El formato no es valido
+                    </span>
+                    <span class="form-text text-danger" *ngIf="emailtomado()">
+                        El email ya existe
+                    </span> -->
                 </div>
 
             </div>
@@ -86,14 +98,18 @@
             <!-- botón -->
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-primary float-right">Crear</button>
+                    <button type="submit" class="btn btn-primary float-right" [disabled]="miForm.pending">Crear</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 <h2>Form valid</h2>
-<pre>: {{miForm.valid}}</pre>
+<pre> {{miForm.valid}}</pre>
+<hr>
+<h2>Form Status</h2>
+<pre> {{miForm.status}}</pre>
+<hr>
 <!-- Revisando errores que pueden haber  -->
 <h5>Errores en Nombre</h5>
 <pre>{{miForm.controls.nombre.errors | json}}</pre>
